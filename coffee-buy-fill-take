@@ -1,0 +1,98 @@
+import java.util.Scanner;
+
+
+public class Ex {
+
+
+    public static Scanner leitor = new Scanner(System.in);
+
+
+    public static void main(String[] args) {
+        int agua = 400;
+        int leite = 540;
+        int cafe = 120;
+        int copo = 9;
+        int din = 550;
+        String action;
+
+
+        System.out.println("The coffee machine has: ");
+        System.out.println(agua + " ml of water");
+        System.out.println(leite + " ml of milk");
+        System.out.println(cafe + " g of coffee beans");
+        System.out.println(copo + " disposable cups");
+        System.out.println("$" + din + " of money\n");
+
+
+        System.out.print("write action (buy, fill, take): ");
+        action = leitor.nextLine();
+
+
+        switch (action) {
+            case "buy":
+                int coffee;
+       
+                System.out.print("What do you want to buy (1 - expresso, 2 - latte, 3 - cappucino): ");
+                coffee = leitor.nextInt();
+                switch (coffee) {
+                    case 1:
+                        agua -= 250;
+                        cafe -= 16;
+                        copo -= 1;
+                        din += 4;
+                        break;
+                   
+                    case 2:
+                        agua -= 350;
+                        leite -= 75;
+                        cafe -= 20;
+                        copo -= 1;
+                        din += 7;
+                        break;
+       
+                    case 3:
+                        agua -= 200;
+                        leite -= 100;
+                        cafe -= 12;
+                        copo -= 1;
+                        din += 6;
+                        break;
+
+
+                    default:
+                        System.out.println("ERROR!!!\nINVALID OPTION");
+                        break;
+                }
+            break;
+               
+            case "fill":
+                System.out.print("Write how many ml of water you want to add: ");
+                agua += leitor.nextInt();
+                System.out.print("Write how many ml of milk you want to add: ");
+                leite += leitor.nextInt();
+                System.out.print("Write how many grams of coffee beans you want to add: ");
+                cafe += leitor.nextInt();
+                System.out.print("Write how many disposable cups you want to add: ");
+                copo += leitor.nextInt();
+                break;
+
+
+            case "take":
+                System.out.println("I gave you: $" + din);
+                din = 0;
+                break;
+
+
+            default:
+                System.out.println("ERROR!!!\nINVALID OPTION");
+                break;
+        }
+        System.out.println("\nThe coffee machine has: ");
+        System.out.println(agua + " ml of water");
+        System.out.println(leite + " ml of milk");
+        System.out.println(cafe + " g of coffee beans");
+        System.out.println(copo + " disposable cups");
+        System.out.println("$" + din + " of money\n");
+    }
+ 
+}
