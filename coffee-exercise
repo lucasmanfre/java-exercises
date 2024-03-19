@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+
+public class Ex {
+
+
+    public static Scanner leitor = new Scanner(System.in);
+
+
+    public static void main(String[] args) {
+        int agua;
+        int leite;
+        int cafe;
+        int qtd;
+        int total = 0;
+
+
+        System.out.print("Quantos ml de AGUA tem na maquina: ");
+        agua = leitor.nextInt();
+        System.out.print("Quantos ml de LEITE tem na maquina: ");
+        leite = leitor.nextInt();
+        System.out.print("Quantos gramas de CAFE tem na maquina: ");
+        cafe = leitor.nextInt();
+        System.out.print("Quantos COPOS de CAFE voce quer fazer: ");
+        qtd = leitor.nextInt();
+
+
+        agua /= 200;
+        total = agua;
+        leite /= 50;
+        if (leite < total) {
+            total = leite;
+        }
+        cafe /= 15;
+        if (cafe < total) {
+            total = cafe;
+        }
+
+
+        if (qtd > total){
+            System.out.println("Nao, so consigo fazer " + total + " cafe(s).");
+        }
+        else if (qtd == total){
+            System.out.println("Sim, eu consigo fazer essa quantidade de cafe");
+        }
+        else if (qtd < total){
+            System.out.println("Sim, eu consigo fazer essa quantidade e " + (total-qtd) + " a mais");
+        }
+
+
+    }
+}
